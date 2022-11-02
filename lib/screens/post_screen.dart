@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_http/models/post_model.dart';
 import 'package:flutter_http/repository/network.dart';
+import 'package:flutter_http/screens/single_post_screen.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({super.key});
@@ -74,10 +75,25 @@ class PostList extends StatelessWidget {
         return Column(
           children: [
             ListTile(
-              onTap: () {
-                // getPost();
-              },
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SinglePostScreen(
+                    title: index[i].title,
+                    body: index[i].body,
+                    id: index[i].id.toString(),
+                  ),
+                ),
+              ),
+              leading: Text(
+                index[i].id.toString(),
+                style: const TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               title: Text(index[i].title),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
             ),
             const Divider(
               color: Colors.amber,
