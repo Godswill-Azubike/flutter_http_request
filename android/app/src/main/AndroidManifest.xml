@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ictyep.flutter_http">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="flutter_http"
         android:name="${applicationName}"
